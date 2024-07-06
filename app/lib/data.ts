@@ -30,6 +30,11 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoices() {
   try {
+    console.log('Fetching Latest Invoices data...');
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
+    console.log('Data fetch completed after 5 seconds.');
+
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
       FROM invoices
